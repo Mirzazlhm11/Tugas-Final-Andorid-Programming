@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "penumpang_tabel")
+@Entity(tableName = "penumpang_table")
 data class PenumpangEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
