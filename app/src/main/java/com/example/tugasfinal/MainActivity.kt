@@ -19,11 +19,26 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        viewmodel = ViewModelProvider(this).get(UserViewModel::class.java)
+        recyclerview.setHasFixedSize(true)
+        recyclerview.layoutManager = LinearLayoutManager(this)
+
+        viewmodel.getPenumpang()?.observe(this, Observer {
+            recyclerview.adapter = MainAdapter(it, object : MainAdapter.Listener{
+                override fun onViewClick(penumpangEntity: PenumpangEntity) {
+                    onViewAction(penumpangEntity)
+                }
+            })
+        })
 
         addBtn.setOnClickListener {
             showDialog()
         }
 
+    }
+
+    private fun onViewAction(penumpangEntity: PenumpangEntity) {
+        TODO("Not yet implemented")
     }
 
     private fun showDialog() {
