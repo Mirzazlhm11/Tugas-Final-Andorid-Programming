@@ -10,6 +10,8 @@ data class PenumpangEntity(
     val id: Int,
     var nama: String,
     var umur: String,
+    @ColumnInfo(name = "jenis_kelamin")
+    var jenisKelamin: String,
     var alamat: String,
     @ColumnInfo(name = "tempat_keberangkatan")
     var tempatKeberangkatan: String,
